@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "153751170637",
+    "project_id": "arithmetic-quiz-505e6",
+    "storage_bucket": "arithmetic-quiz-505e6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:153751170637:android:5f4999a86073becfadf604",
+        "android_client_info": {
+          "package_name": "com.tabish.arithmeticquiz"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "153751170637-2dpm66pdnpd098v4g4bq4du20q38tfhi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNmWOqZ53lkTMzFKBBdEvRvZ0ulC8tSQQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "153751170637-2dpm66pdnpd098v4g4bq4du20q38tfhi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
