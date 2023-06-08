@@ -19,43 +19,45 @@ import com.google.firebase.database.ServerValue;
 
 public class arcadeGame extends AppCompatActivity {
 
-    FirebaseAuth frbAuth;
-    FirebaseUser currentUser;
+    private FirebaseAuth frbAuth;
+    private FirebaseUser currentUser;
 
-    DatabaseReference mDatabase;
+    private DatabaseReference mDatabase;
 
-    Chronometer timerText;
-    TextView questionText;
-    TextView scoreText;
-    TextView correctOrWrong;
-    TextView difficultyTextArcade;
+    private Chronometer timerText;
+    private TextView questionText;
+    private TextView scoreText;
+    private TextView correctOrWrong;
+    private TextView difficultyTextArcade;
 
-    CountDownTimer countDownTimer;
+    private CountDownTimer countDownTimer;
 
-    Button button1;
-    Button button2;
-    Button button3;
-    Button button4;
+    private Button button1;
+    private Button button2;
+    private Button button3;
+    private Button button4;
 
-    String minutes;
-    String seconds;
-    String time;
-    String[] timeSplit;
-    String level;
-    long score=0;
-    long no_of_ques=0;
-    int answer;
-    int option;
+    private String minutes;
+    private String seconds;
+    private String time;
+    private String[] timeSplit;
+    private String level;
 
-    String currentQuestion="";
+    private long score=0;
+    private long no_of_ques=0;
+    private int answer;
+    private int option;
 
-    int lower_limit,upper_limit;
+    private String currentQuestion="";
 
-    public int getRandomNumber(int min, int max) {
+    private int lower_limit;
+    private int upper_limit;
+
+    private int getRandomNumber(int min, int max) {
         return (int) (Math.random() * ((max - min) + 1)) + min;
     }
 
-    public void generateDivisibleQues()
+    private void generateDivisibleQues()
     {
         int m,n;
         m=getRandomNumber(lower_limit,upper_limit);
@@ -79,7 +81,7 @@ public class arcadeGame extends AppCompatActivity {
         }
     }
 
-    public void generateQues()
+    private void generateQues()
     {
         int x=getRandomNumber(1,4);
         int y,z;
@@ -127,7 +129,7 @@ public class arcadeGame extends AppCompatActivity {
 
     }
 
-    public void setAns()
+    private void setAns()
     {
         int x=getRandomNumber(1,4);
         option=x;

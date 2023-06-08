@@ -11,9 +11,10 @@ import android.widget.Toast;
 
 public class normalGameInfo extends AppCompatActivity {
 
-    EditText minutes;
-    EditText seconds;
-    String level="";
+    private EditText minutes;
+    private EditText seconds;
+
+    private String level="";
 
     public void difficultySelect(View view) {
         // Is the button now checked?

@@ -33,20 +33,20 @@ import static java.lang.String.valueOf;
 
 public class MyProfile extends AppCompatActivity {
 
-    FirebaseAuth frbAuth;
-    FirebaseUser currentUser;
+    private FirebaseAuth frbAuth;
+    private FirebaseUser currentUser;
 
-    DatabaseReference mDatabase;
+    private DatabaseReference mDatabase;
 
-    FirebaseStorage storage;
-    StorageReference storageReference;
+    private FirebaseStorage storage;
+    private StorageReference storageReference;
 
-    TextView myProfileText;
-    ImageView myProfilePicture;
+    private TextView myProfileText;
+    private ImageView myProfilePicture;
 
-    long i;
+    private long i;
 
-    public void showProfilePic() //getting profile pic
+    private void showProfilePic() //getting profile pic
     {
         StorageReference ref = storageReference.child("users").child(currentUser.getUid()).child("image");
         ref.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {

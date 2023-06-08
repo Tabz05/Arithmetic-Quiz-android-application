@@ -16,38 +16,44 @@ import com.google.firebase.database.ServerValue;
 
 public class normalGame extends AppCompatActivity {
 
-    FirebaseAuth frbAuth;
-    FirebaseUser currentUser;
+    private FirebaseAuth frbAuth;
+    private FirebaseUser currentUser;
 
-    DatabaseReference mDatabase;
+    private DatabaseReference mDatabase;
 
-    TextView timerText;
-    TextView questionText;
-    TextView scoreText;
-    TextView correctOrWrong;
-    TextView difficultyText;
+    private TextView timerText;
+    private TextView questionText;
+    private TextView scoreText;
+    private TextView correctOrWrong;
+    private TextView difficultyText;
 
-    CountDownTimer countDownTimer;
+    private CountDownTimer countDownTimer;
 
-    Button button1;
-    Button button2;
-    Button button3;
-    Button button4;
+    private Button button1;
+    private Button button2;
+    private Button button3;
+    private Button button4;
 
-    String minutes,seconds,level;
-    long score=0;
-    long no_of_ques=0;
-    int answer;
-    int option;
-    String currentQuestion="";
+    private String minutes;
+    private String seconds;
+    private String level;
 
-    int lower_limit,upper_limit;
+    private long score=0;
+    private long no_of_ques=0;
 
-    public int getRandomNumber(int min, int max) {
+    private int answer;
+    private int option;
+
+    private String currentQuestion="";
+
+    private int lower_limit;
+    private int upper_limit;
+
+    private int getRandomNumber(int min, int max) {
         return (int) (Math.random() * ((max - min) + 1)) + min;
     }
 
-    public void generateDivisibleQues()
+    private void generateDivisibleQues()
     {
         int m,n;
         m=getRandomNumber(lower_limit,upper_limit);
@@ -71,7 +77,7 @@ public class normalGame extends AppCompatActivity {
         }
     }
 
-    public void generateQues()
+    private void generateQues()
     {
         int x=getRandomNumber(1,4);
         int y,z;
@@ -119,7 +125,7 @@ public class normalGame extends AppCompatActivity {
         }
     }
 
-    public void setAns()
+    private void setAns()
     {
         int x=getRandomNumber(1,4);
         option=x;
@@ -265,7 +271,6 @@ public class normalGame extends AppCompatActivity {
 
     public void checkAns(View view)
     {
-
         no_of_ques+=1;
 
         if(currentUser!=null)
@@ -295,8 +300,7 @@ public class normalGame extends AppCompatActivity {
         setAns();
     }
 
-
-    public void updatetimertext (int secondschange)
+    private void updatetimertext (int secondschange)
     {
         int min = secondschange / 60;
         int sec = secondschange - (min * 60);
@@ -384,12 +388,6 @@ public class normalGame extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-
-              /*  if(currentUser!=null)
-                {
-                    mDatabase.child("users").child(currentUser.getUid()).child("no_of_ques_attempt").setValue(ServerValue.increment(no_of_ques));
-                    mDatabase.child("users").child(currentUser.getUid()).child("no_of_ques_correct").setValue(ServerValue.increment(score));
-                }*/
 
                 button1.setEnabled(false);
                 button2.setEnabled(false);

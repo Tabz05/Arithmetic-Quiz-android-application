@@ -12,7 +12,6 @@ public class User {
     public long no_of_ques_attempt_arcade;
     public long no_of_ques_correct_arcade;
 
-
     public User()
     {
 

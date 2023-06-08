@@ -1,7 +1,6 @@
 package com.tabish.arithmeticquiz;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,7 +9,7 @@ import android.widget.Toast;
 
 public class arcadeGameInfo extends AppCompatActivity {
 
-    String level="";
+    private String level="";
 
     public void difficultySelectArcade(View view) {
         // Is the button now checked?

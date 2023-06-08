@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-
 import android.Manifest;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -16,7 +15,6 @@ import android.provider.MediaStore;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
-
 import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -31,31 +29,28 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-
 import java.util.UUID;
 
 public class picUpload extends AppCompatActivity {
 
-    FirebaseAuth frbAuth;
-    FirebaseUser currentUser;
+    private FirebaseAuth frbAuth;
+    private FirebaseUser currentUser;
 
-    DatabaseReference mDatabase;
+    private DatabaseReference mDatabase;
 
-    public Uri selectedImage;
+    private Uri selectedImage;
 
-    FirebaseStorage storage;
-    StorageReference storageReference;
+    private FirebaseStorage storage;
+    private StorageReference storageReference;
 
-    ImageView imageView;
+    private ImageView imageView;
 
-    long x;
+    private long x;
 
-    public void getPhoto() {
+    private void getPhoto() {
         Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         startActivityForResult(intent, 1);
     }
-
-    //requesting permission
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -84,17 +79,12 @@ public class picUpload extends AppCompatActivity {
             x=1;
             mDatabase.child("users").child(currentUser.getUid()).child("hasImage").setValue(x);
 
-            // Code for showing progressDialog while uploading
-            ProgressDialog progressDialog
-                    = new ProgressDialog(this);
+            ProgressDialog progressDialog = new ProgressDialog(this);
             progressDialog.setTitle("Uploading...");
             progressDialog.show();
 
-            // Defining the child of storageReference
             StorageReference ref = storageReference.child("users").child(currentUser.getUid()).child("image");
 
-            // adding listeners on upload
-            // or failure of image
             ref.putFile(selectedImage).addOnSuccessListener(
                     new OnSuccessListener<UploadTask.TaskSnapshot>() {
 

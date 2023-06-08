@@ -37,27 +37,27 @@ import com.google.firebase.storage.UploadTask;
 
 public class EditProfile extends AppCompatActivity {
 
-    FirebaseAuth frbAuth;
-    FirebaseUser currentUser;
+    private FirebaseAuth frbAuth;
+    private FirebaseUser currentUser;
 
-    DatabaseReference mDatabase;
+    private DatabaseReference mDatabase;
 
-    public Uri selectedImage;
+    private Uri selectedImage;
 
-    FirebaseStorage storage;
-    StorageReference storageReference;
+    private FirebaseStorage storage;
+    private StorageReference storageReference;
 
-    EditText newUsername;
-    Button removePic;
+    private EditText newUsername;
+    private Button removePic;
 
-    ImageView imageView3;
+    private ImageView imageView3;
 
-    long x;
+    private long x;
 
-    String Username;
-    long hasImage;
+    private String Username;
+    private long hasImage;
 
-    public void getPhoto() {
+    private void getPhoto() {
         Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         startActivityForResult(intent, 1);
     }
@@ -75,7 +75,7 @@ public class EditProfile extends AppCompatActivity {
         }
     }
 
-    public void chooseProfilePicEdit (View view)
+    public void chooseProfilePicEdit(View view)
     {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) { //checking if permission for gallery has been granted or not
             ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 1);
@@ -84,7 +84,7 @@ public class EditProfile extends AppCompatActivity {
         }
     }
 
-    public void updateImage()
+    private void updateImage()
     {
         x=1;
         mDatabase.child("users").child(currentUser.getUid()).child("hasImage").setValue(x);
@@ -210,9 +210,6 @@ public class EditProfile extends AppCompatActivity {
                         @Override
                         public void onSuccess(Uri uri) {
 
-                            /*Glide.with(EditProfile.this)
-                                    .load(uri.toString())
-                                    .into(imageView3);*/
                             Glide.with(getApplicationContext()).load(uri.toString()).into(imageView3);
                         }
                     }).addOnFailureListener(new OnFailureListener() {

@@ -1,13 +1,12 @@
 package com.tabish.arithmeticquiz;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.widget.TextView;
 
 public class Help extends AppCompatActivity {
 
-    TextView t;
+    private TextView t;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

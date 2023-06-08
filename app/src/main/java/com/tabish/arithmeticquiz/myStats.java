@@ -16,12 +16,12 @@ import com.google.firebase.database.ValueEventListener;
 
 public class myStats extends AppCompatActivity {
 
-    FirebaseAuth frbAuth;
-    FirebaseUser currentUser;
+    private FirebaseAuth frbAuth;
+    private FirebaseUser currentUser;
 
-    DatabaseReference mDatabase;
+    private DatabaseReference mDatabase;
 
-    TextView myStatsText;
+    private TextView myStatsText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -23,23 +23,23 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class SignUp extends AppCompatActivity {
 
-    EditText usernameSignUp;
-    EditText emailSignUp;
-    EditText passSignUp;
-    TextView textsignup;
+    private EditText usernameSignUp;
+    private EditText emailSignUp;
+    private EditText passSignUp;
+    private TextView textsignup;
 
-    CountDownTimer countDownTimer;
+    private CountDownTimer countDownTimer;
 
-    FirebaseAuth frbAuth;
-    FirebaseUser currentUser;
+    private FirebaseAuth frbAuth;
+    private FirebaseUser currentUser;
 
-    DatabaseReference mDatabase;
+    private DatabaseReference mDatabase;
 
-    String username;
-    String email;
-    String pass;
+    private String username;
+    private String email;
+    private String pass;
 
-    public void sendEmailVerification() {
+    private void sendEmailVerification() {
 
         final FirebaseUser user = frbAuth.getCurrentUser();
         user.sendEmailVerification()
@@ -61,7 +61,7 @@ public class SignUp extends AppCompatActivity {
                 });
     }
 
-    public void createUser(){
+    private void createUser(){
         username=usernameSignUp.getText().toString();
         email = emailSignUp.getText().toString();
         pass = passSignUp.getText().toString();

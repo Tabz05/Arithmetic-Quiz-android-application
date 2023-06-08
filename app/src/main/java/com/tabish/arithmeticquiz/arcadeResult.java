@@ -10,11 +10,15 @@ import android.widget.Toast;
 
 public class arcadeResult extends AppCompatActivity {
 
-    String no_of_ques,score,minutes,seconds,level;
+    private String no_of_ques;
+    private String score;
+    private String minutes;
+    private String seconds;
+    private String level;
 
-    TextView resultText;
+    private TextView resultText;
 
-    public void main(View view)
+    public void home(View view)
     {
         Intent goToMain = new Intent (getApplicationContext(),MainActivity.class);
         startActivity(goToMain);

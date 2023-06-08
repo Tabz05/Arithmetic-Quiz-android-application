@@ -10,9 +10,13 @@ import android.widget.Toast;
 
 public class normalResult extends AppCompatActivity {
 
-    String no_of_ques,score,minutes,seconds,level;
+    private String no_of_ques;
+    private String score;
+    private String minutes;
+    private String seconds;
+    private String level;
 
-    TextView resultText;
+    private TextView resultText;
 
     public void home(View view)
     {
@@ -50,6 +54,5 @@ public class normalResult extends AppCompatActivity {
     @Override //to prevent going back when back button is clicked
     public void onBackPressed()
     {
-
     }
 }

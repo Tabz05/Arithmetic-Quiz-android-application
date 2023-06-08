@@ -10,7 +10,7 @@
         android:id="@+id/buttonHomeArcade"
         android:layout_width="133dp"
         android:layout_height="75dp"
-        android:onClick="main"
+        android:onClick="home"
         android:text="home"
         android:textSize="18sp"
         app:backgroundTint="@color/pink_purple"

@@ -2,13 +2,11 @@ package com.tabish.arithmeticquiz;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -17,13 +15,14 @@ import com.google.firebase.auth.FirebaseAuthException;
 
 public class SignIn extends AppCompatActivity {
 
-    EditText emailSignIn;
-    EditText passSignIn;
-    TextView textsignIn;
+    private EditText emailSignIn;
+    private EditText passSignIn;
+    private TextView textsignIn;
 
-    FirebaseAuth frbAuth;
+    private FirebaseAuth frbAuth;
 
-    public void loginUser() {
+    private void loginUser() {
+
         String email = emailSignIn.getText().toString();
         String password = passSignIn.getText().toString();
         frbAuth.signInWithEmailAndPassword(email, password)
