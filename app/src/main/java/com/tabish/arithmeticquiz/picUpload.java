@@ -45,8 +45,6 @@ public class picUpload extends AppCompatActivity {
 
     private ImageView imageView;
 
-    private long x;
-
     private void getPhoto() {
         Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         startActivityForResult(intent, 1);
@@ -76,8 +74,7 @@ public class picUpload extends AppCompatActivity {
     {
         if (selectedImage != null) {
 
-            x=1;
-            mDatabase.child("users").child(currentUser.getUid()).child("hasImage").setValue(x);
+            mDatabase.child("users").child(currentUser.getUid()).child("hasImage").setValue(1);
 
             ProgressDialog progressDialog = new ProgressDialog(this);
             progressDialog.setTitle("Uploading...");

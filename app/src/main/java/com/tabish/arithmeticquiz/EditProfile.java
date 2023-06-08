@@ -50,8 +50,6 @@ public class EditProfile extends AppCompatActivity {
 
     private ImageView imageView3;
 
-    private long x;
-
     private String Username;
     private long hasImage;
 
@@ -84,20 +82,15 @@ public class EditProfile extends AppCompatActivity {
 
     private void updateImage()
     {
-        x=1;
-        mDatabase.child("users").child(currentUser.getUid()).child("hasImage").setValue(x);
+        mDatabase.child("users").child(currentUser.getUid()).child("hasImage").setValue(1);
 
         // Code for showing progressDialog while uploading
-        ProgressDialog progressDialog
-                = new ProgressDialog(this);
+        ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setTitle("Uploading...");
         progressDialog.show();
 
-        // Defining the child of storageReference
         StorageReference Ref = storageReference.child("users").child(currentUser.getUid()).child("image");
 
-        // adding listeners on upload
-        // or failure of image
         Ref.putFile(selectedImage).addOnSuccessListener(
                 new OnSuccessListener<UploadTask.TaskSnapshot>() {
 
@@ -128,8 +121,6 @@ public class EditProfile extends AppCompatActivity {
                 .addOnProgressListener(
                         new OnProgressListener<UploadTask.TaskSnapshot>() {
 
-                            // Progress Listener for loading
-                            // percentage on the dialog box
                             @Override
                             public void onProgress(
                                     UploadTask.TaskSnapshot taskSnapshot)
@@ -155,18 +146,16 @@ public class EditProfile extends AppCompatActivity {
             updateImage();
         }
 
-
         Toast.makeText(EditProfile.this,"Profile edit completed",Toast.LENGTH_SHORT).show();
 
         Intent goToMainActivity = new Intent(getApplicationContext(),MainActivity.class);
-
         startActivity(goToMainActivity);
 
     }
 
     public void removeProfilePic(View view)
     {
-        x=0;
+        selectedImage=null;
         mDatabase.child("users").child(currentUser.getUid()).child("hasImage").setValue(0);
         imageView3.setImageResource(R.drawable.profilepic);
         removePic.setVisibility(View.INVISIBLE);
