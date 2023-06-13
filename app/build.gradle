@@ -11,8 +11,8 @@ android {
         applicationId "com.tabish.arithmeticquiz"
         minSdkVersion 16
         targetSdkVersion 31
-        versionCode 20
-        versionName "8.1"
+        versionCode 21
+        versionName "8.2"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
