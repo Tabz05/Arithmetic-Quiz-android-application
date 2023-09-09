@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/architects_daughter</item>
+        <item>@font/boogaloo</item>
+        <item>@font/chelsea_market</item>
+        <item>@font/cherry_cream_soda</item>
+        <item>@font/cherry_swash</item>
+        <item>@font/chewy</item>
+        <item>@font/chicle</item>
+        <item>@font/coiny</item>
+    </array>
+</resources>

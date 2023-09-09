@@ -1,5 +1,4 @@
 package com.tabish.arithmeticquiz;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,26 +8,16 @@ import android.Manifest;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.IntentSender;
 import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.os.CountDownTimer;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.google.android.gms.ads.MobileAds;
-import com.google.android.play.core.appupdate.AppUpdateInfo;
-import com.google.android.play.core.appupdate.AppUpdateManager;
-import com.google.android.play.core.appupdate.AppUpdateManagerFactory;
-import com.google.android.play.core.install.model.AppUpdateType;
-import com.google.android.play.core.install.model.UpdateAvailability;
-import com.google.android.play.core.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -45,14 +34,13 @@ public class MainActivity extends AppCompatActivity {
     private DatabaseReference mDatabase;
 
     private TextView welcomeUser;
-    private TextView textViewBottom;
 
-    private boolean isNetworkAvailable() { // to check if connected to internet
+    private boolean isNetworkAvailable() {
         boolean connected = false;
         ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
         if(connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
                 connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
-            //we are connected to a network
+
             connected = true;
         }
         else
@@ -79,8 +67,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) { //this is like a global variable being declared to be able to use
-        //menu bar anywhere in program
+    public boolean onCreateOptionsMenu(Menu menu) {
 
         MenuInflater menuInflater = getMenuInflater();
 
@@ -97,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) { //when an item of menubar is selected
+    public boolean onOptionsItemSelected(MenuItem item) {
         super.onOptionsItemSelected(item);
 
         switch (item.getItemId()) {
@@ -142,19 +129,19 @@ public class MainActivity extends AppCompatActivity {
                 return true;
 
 
-            case R.id.aboutus: //when element of menu bar of id aboutus is selected
+            case R.id.aboutus:
                 Toast.makeText(this, "About Us", Toast.LENGTH_LONG).show();
                 Intent goToAboutUs = new Intent(getApplicationContext(), AboutUs.class);
-                //to be able to go to AboutUs activity,  goToAboutUs is a variable of Intent type
+
                 startActivity(goToAboutUs);
-                //going to AboutUs activity
+
                 return true;
-            case R.id.help: //when element of menu bar of id help is selected
+            case R.id.help:
                 Toast.makeText(this, "Help", Toast.LENGTH_LONG).show();
                 Intent goToHelp = new Intent(getApplicationContext(), Help.class);
-                //to be able to go to Help activity,  goToHelp is a variable of Intent type
+
                 startActivity(goToHelp);
-                //going to Help activity
+
                 return true;
 
             case R.id.signUp:
@@ -248,15 +235,13 @@ public class MainActivity extends AppCompatActivity {
                     if(isNetworkAvailable())
                     {
 
-                new AlertDialog.Builder(this) //creating an alert dialogue box
-                        .setIcon(android.R.drawable.ic_dialog_alert) //setting up the icon for alert dialogue box
-                        .setTitle("Are you sure!?")  //setting up the title for alert dialogue box
-                        .setMessage("Do you want to reset your stats?") //setting up the message for alert dialogue box
-                        //Positive and negative are two options, to answer the alert dialogue box
-                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() { //Yes is the text for positive
-                            //button
+                new AlertDialog.Builder(this)
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .setTitle("Are you sure!?")
+                        .setMessage("Do you want to reset your stats?")
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                             @Override
-                            public void onClick(DialogInterface dialogInterface, int i) { //when Yes button is clicked
+                            public void onClick(DialogInterface dialogInterface, int i) {
                                 mDatabase.child("users").child(currentUser.getUid()).child("no_of_ques_attempt").setValue(x);
                                 mDatabase.child("users").child(currentUser.getUid()).child("no_of_ques_correct").setValue(x);
                                 mDatabase.child("users").child(currentUser.getUid()).child("no_of_ques_attempt_arcade").setValue(x);
@@ -268,10 +253,8 @@ public class MainActivity extends AppCompatActivity {
                                 startActivity(goToStat);
                             }
                         })
-                        .setNegativeButton("No",null) //No is the text for negative button
-                        //null means that when No button is clicked, we just want the alert dialogue box to close and nothing
-                        //else is to be done
-                        .show(); //to show the alert dialogue box
+                        .setNegativeButton("No",null)
+                        .show();
                     }
                     else
                     {
@@ -355,7 +338,6 @@ public class MainActivity extends AppCompatActivity {
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
         welcomeUser = findViewById(R.id.welcomeUser);
-        textViewBottom=findViewById(R.id.textViewBottom);
 
         if(currentUser!=null)
         {
