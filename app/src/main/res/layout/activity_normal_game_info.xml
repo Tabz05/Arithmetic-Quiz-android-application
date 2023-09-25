@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".normalGameInfo">
+
+    <Button
+        android:id="@+id/buttonStartNormalGame"
+        android:layout_width="120dp"
+        android:layout_height="80dp"
+        android:onClick="start"
+        android:text="START"
+        app:backgroundTint="#bb12e6"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup"
+        />
+
+    <EditText
+        android:id="@+id/seconds"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Enter number of seconds"
+        android:inputType="number"
+        app:layout_constraintBottom_toTopOf="@+id/chooseDifficultyNormal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/minutes" />
+
+    <EditText
+        android:id="@+id/minutes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Enter number of minutes"
+        android:inputType="number"
+        app:layout_constraintBottom_toTopOf="@+id/seconds"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/buttonStartNormalGame"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chooseDifficultyNormal">
+
+        <RadioButton
+            android:id="@+id/easy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="difficultySelect"
+            android:text="Easy" />
+
+        <RadioButton
+            android:id="@+id/medium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="difficultySelect"
+            android:text="Medium" />
+
+        <RadioButton
+            android:id="@+id/difficult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="difficultySelect"
+            android:text="Difficult" />
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/chooseDifficultyNormal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Choose difficulty"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textColor="@color/blue"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/radioGroup"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/seconds" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/help"
+        android:title="Help" />
+    <item
+        android:id="@+id/aboutus"
+        android:title="About Us" />
+    <item
+        android:id="@+id/myProfile"
+        android:title="My Profile" />
+
+    <item
+        android:id="@+id/editProfile"
+        android:title="Edit Profile" />
+
+    <item
+        android:id="@+id/myStats"
+        android:title="My Stats" />
+
+    <item
+        android:id="@+id/resetStat"
+        android:title="Reset Stats" />
+
+    <item
+        android:id="@+id/signOut"
+        android:title="Sign Out" />
+
+</menu>
