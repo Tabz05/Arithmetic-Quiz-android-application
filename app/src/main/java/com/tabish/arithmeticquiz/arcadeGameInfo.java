@@ -12,7 +12,7 @@ public class arcadeGameInfo extends AppCompatActivity {
     private String level="";
 
     public void difficultySelectArcade(View view) {
-        // Is the button now checked?
+
         boolean checked = ((RadioButton) view).isChecked();
 
         if(checked && view.getId()==R.id.easyArcade)

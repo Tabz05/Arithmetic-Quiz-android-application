@@ -49,7 +49,7 @@ public class arcadeResult extends AppCompatActivity {
         resultText.setText("Level: "+level+" ,Mode: Arcade"+"\n\nTotal time: "+minutes+ " minutes "+seconds+" seconds"+"\n\n"+"Total Number of questions attempted: "+no_of_ques+"\n\n"+"Total number of questions correct: "+score);
     }
 
-    @Override //to prevent going back when back button is clicked
+    @Override
     public void onBackPressed()
     {
 
